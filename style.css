@@ -1,0 +1,82 @@
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+.life {
+  --progress: 10%;
+  width: 100%;
+  max-width: 150px;
+  height: 20px;
+  border-radius: 10px;
+  /* curiosamente, ao deixarmos o container como flex, o before tendo seu tamanho
+  em relação ao seu pai, o mesmo não vaza se ficar acima de 100% oque é algo 
+  que não sabia que acontecia, oque tem um pouco de sentido já que é um 
+  container flex e tecnicamente o before é um flex-item. isso tambem acontece,
+  porque o shirink é 1 */
+  display: flex;
+  background-color: grey;
+  margin: 0 auto;
+  position: relative;
+}
+.life::before {
+  content: "";
+  display: block;
+  /* width: var(--progress); */
+  height: 100%;
+  background-color: brown;
+  border-radius: 10px;
+  position: absolute;
+}
+
+/* canteiro */
+.canteiro {
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin: auto 0;
+}
+/* container */
+.container-plantas {
+  display: flex;
+  /* background-color: tomato; */
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0 40px;
+  max-width: 800px;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+.planta {
+  padding: 10px;
+  cursor: pointer;
+}
+img {
+  display: block;
+  margin: 0 auto;
+}
+#regar {
+  background-color: transparent;
+  display: block;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.acoes {
+  width: 100%;
+  background-color: violet;
+}
+/* #planta2 .life {
+  --progress1: 30%;
+}
+#planta2 .life::before {
+  width: var(--progress1);
+} */
+/* #planta2 .life::before {
+  width: calc(var(--progress) * 2);
+} */

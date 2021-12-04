@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="canteiro">
+      <ul class="container-plantas">
+        <!-- <li class="planta" id="1" data-click="0">
+          <div class="life">
+            <div class="progressbar"></div>
+          </div>
+          <img src="Assets/Figures/plant-default.png" alt="" />
+        </li> -->
+      </ul>
+      <div class="acoes">
+        <button id="regar">
+          <img src="Assets/Figures/watering-can.png" alt="" />
+        </button>
+      </div>
+    </div>
+    <!-- <script>
+      const barra = document.querySelector("#barraProgresso");
+      let increase = 10;
+      setInterval(() => {
+        /**oque estamos fazendo aqui é atribuir valor a variavel --progress
+         * e não a uma propriedade width(era oque eu pensava antes )
+         */
+        barra.style.setProperty("--progress", increase + "%");
+        increase += 1;
+      }, 1000);
+    </script> -->
+    <!-- <script defer>
+      const regar = document.querySelector("#regar");
+      const img = document.querySelector("img");
+      regar.addEventListener("click", () => {
+        img.src = "./Assets/Figures/plant-default-water.gif";
+      });
+      console.log("sadsa");
+      console.log(document.styleSheets);
+    </script> -->
+  </body>
+
+  <script src="./Planta.js"></script>
+  <script>
+    // const vasoDePlanta = [];
+    window.onload = () => {
+      const rosa = new Planta("./Assets/Figures/plant-default.png", 100);
+    };
+    // document.body.addEventListener("click", (e) => {
+    //   let ul = document.querySelector(".container-plantas");
+    //   if (ul.contains(e.target)) {
+    //   } else {
+    //     console.log("não");
+    //   }
+    // });
+    // let plantas = new Promise((resolve) => {
+    //   let time = setInterval(() => {
+    //     if (document.querySelectorAll(".planta").length >= 1) {
+    //       resolve(document.querySelectorAll(".planta"));
+    //       clearInterval(time);
+    //     }
+    //   });
+    // });
+    // plantas.then((elementos) => {
+    //   elementos.forEach((element) => {
+    //     console.log(elementos);
+    //     element.addEventListener("click", () => {
+    //       element.dataset.click = +element.dataset.click + 1;
+    //       if (element.dataset.click >= 5) {
+    //         element.dataset.click = 0;
+    //         vasoDePlanta.push(
+    //           new Planta("./Assets/Figures/plant-default-water.gif", 100)
+    //         );
+    //       }
+    //     });
+    //   });
+    // });
+    // encerra de vez o codigo
+    // let verifica = setInterval(() => {
+    //   if (document.querySelector('[data-viva="false"]')) {
+    //     Planta.mataTodasPlantas();
+    //     clearInterval(verifica);
+    //   }
+    // });
+  </script>
+</html>
