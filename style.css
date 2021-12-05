@@ -22,9 +22,9 @@
 .life::before {
   content: "";
   display: block;
-  /* width: var(--progress); */
   height: 100%;
-  background-color: brown;
+  background-color: green;
+  width: 100%;
   border-radius: 10px;
   position: absolute;
 }
@@ -42,7 +42,6 @@
 /* container */
 .container-plantas {
   display: flex;
-  /* background-color: tomato; */
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -71,12 +70,28 @@ img {
   width: 100%;
   background-color: violet;
 }
-/* #planta2 .life {
-  --progress1: 30%;
+.pontuacao {
+  background-color: rgb(67, 67, 67);
+  height: 50px;
+  width: 20%;
+  border-radius: 10px;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#planta2 .life::before {
-  width: var(--progress1);
-} */
-/* #planta2 .life::before {
-  width: calc(var(--progress) * 2);
-} */
+.iniciar {
+  background-color: tomato;
+  border-radius: 10px;
+  width: 10%;
+  display: block;
+  border: none;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+}

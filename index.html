@@ -9,21 +9,25 @@
   </head>
 
   <body>
+    
     <div class="canteiro">
+      <div class="pontuacao"></div>
       <ul class="container-plantas">
-        <!-- <li class="planta" id="1" data-click="0">
+        <li class="planta" id="1" data-click="0">
           <div class="life">
             <div class="progressbar"></div>
           </div>
           <img src="Assets/Figures/plant-default.png" alt="" />
-        </li> -->
+        </li>
       </ul>
       <div class="acoes">
-        <button id="regar">
+        <!-- <button id="regar">
           <img src="Assets/Figures/watering-can.png" alt="" />
         </button>
-      </div>
+      </div> -->
+      
     </div>
+    <button class="iniciar">iniciar</button>
     <!-- <script>
       const barra = document.querySelector("#barraProgresso");
       let increase = 10;
@@ -47,10 +51,21 @@
   </body>
 
   <script src="./Planta.js"></script>
+  <script src="./Placar.js"></script>
   <script>
     // const vasoDePlanta = [];
     window.onload = () => {
-      const rosa = new Planta("./Assets/Figures/plant-default.png", 100);
+      const btn = document.querySelector('.iniciar'); 
+      // if(confirm('Começar a jogar ?')){
+      btn.addEventListener('click',() => {
+        const ul = document.querySelector('.container-plantas')
+        ul.innerHTML  = '';
+        const rosa = new Planta("./Assets/Figures/plant-default.png", 100);
+        Planta.placar(new Placar());
+        
+      })  
+        
+      // }
     };
     // document.body.addEventListener("click", (e) => {
     //   let ul = document.querySelector(".container-plantas");

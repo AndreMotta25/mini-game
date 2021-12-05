@@ -5,8 +5,9 @@ class Planta {
   #id;
   #viva;
   #loop;
-
+  static ObjPlacar;
   static pla = [];
+
   constructor(img, life) {
     this.amarela = false;
     this.#lifeProgress = life;
@@ -16,6 +17,7 @@ class Planta {
     this.#viva = true;
     this.click = 0;
     this.init();
+
     if (Planta.pla.length <= 0) {
       Planta.pla.push(this);
     }
@@ -129,8 +131,13 @@ class Planta {
     this.excluir();
     document.styleSheets[0].insertRule(regra);
     this.#lifeProgress -= 1;
+    if (Planta.ObjPlacar.pontos > 0) {
+      this.atribuiPontos(-100);
+    }
+
     console.log("diminuindo 2");
   }
+  /**quando uma unica planta morrer, e algumas ainda estiverem vivas, esse metodo vai ser o responsavel por zerar suas vidas*/
   mata() {
     this.planta.children[1].src = "./Assets/Figures/plant-dying-flies.gif";
     this.excluir();
@@ -157,16 +164,21 @@ class Planta {
     this.#lifeProgress -= 1;
     console.log("florescendo");
   }
+
+  /**molha a planta, e nas condinçoes 'ideais' cria ramos  */
   molhar() {
-    // this.planta.dataset.click = +this.planta.dataset.click + 1;
     this.click += 1;
     this.#lifeProgress += 10;
+    this.atribuiPontos(50);
     // a planta só vai poder ter um ramo, quando a vida for acima de 32
+    // aqui estamos tambem controlando quantos ramos uma planta pode ter(3);
     if (this.click >= 5 && Planta.pla.length < 3 && this.#lifeProgress > 32) {
+      this.atribuiPontos(500);
       this.planta.children[1].src = "./Assets/Figures/plant-flower.png";
       this.amarela = true;
       console.log(this.planta);
       this.click = 0;
+      // usa um metodo estatico
       Planta.getPlantasExistentes(
         new Planta("./Assets/Figures/plant-default.png", 50)
       );
@@ -177,10 +189,17 @@ class Planta {
     this.montarPlanta();
     this.diminuiBarra();
   }
+  /**vai ser responsavel por guardar as outras instancias da planta, veja, isso tecnicamente não é composiçao pq as plantas ficam
+   * dentro de uma propriedade estatica, logo elas vão pertencer a classe e não a um outro objeto planta
+   */
   static getPlantasExistentes(obj) {
     Planta.pla.push(obj);
     console.log(Planta.pla);
   }
+  /** quando ocorrer o gameOver, este metodo vai ser responsavel por retirar todos os eventos de clicks que as plantas ainda teriam.
+   * aqui tive que usar uma gambiarra, usei um clone para substituir o elemento original e o clone não carrega os eventos atribuidos.
+   * Fiz isso pq não estava conseguindo retirar os eventos com o removeEventListener
+   */
   static removeEventos() {
     let planta1 = document.querySelectorAll(".planta");
     planta1.forEach((elem) => {
@@ -201,5 +220,13 @@ class Planta {
     Planta.removeEventos();
     console.log(contador);
     window.alert("game over!!!");
+  }
+  /**aqui eu vou passar o objeto placar, a propriedade statica ObjPlacar vai receber o objeto(agregação)*/
+  static placar(obj) {
+    Planta.ObjPlacar = obj;
+  }
+  /**atribui os pontos no objeto Placar*/
+  atribuiPontos(pontos) {
+    Planta.ObjPlacar.pontos += pontos;
   }
 }
