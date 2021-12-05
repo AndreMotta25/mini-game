@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    
     <div class="canteiro">
       <h1 class="titulo">Regue a Plantinha</h1>
       <div class="pontuacao">0</div>
@@ -29,9 +31,11 @@
           <img src="Assets/Figures/watering-can.png" alt="" />
         </button>
       </div> -->
-      
+        <button class="btn iniciar">iniciar</button>
+        <button class="btn instrucoes">instruções</button>
+      </div>
     </div>
-    <button class="iniciar">iniciar</button>
+    <footer><h2>desenvolvido por André M.</h2></footer>
     <!-- <script>
       const barra = document.querySelector("#barraProgresso");
       let increase = 10;
@@ -59,17 +63,27 @@
   <script>
     // const vasoDePlanta = [];
     function iniciar() {
-      const ul = document.querySelector('.container-plantas')
-        ul.innerHTML  = '';
-        const rosa = new Planta("./Assets/Figures/plant-default.png", 100);
-        Planta.placar(new Placar());
-        this.removeEventListener("click",iniciar)
+      const ul = document.querySelector(".container-plantas");
+      ul.innerHTML = "";
+      const rosa = new Planta("./Assets/Figures/plant-default.png", 100);
+      Planta.placar(new Placar());
+      this.removeEventListener("click", iniciar);
     }
-     window.onload = () => {
-      const btn = document.querySelector('.iniciar'); 
+    function instrucoes() {
+      window.alert(`O objetivo é manter as plantas vivas!
+Para isso regue a planta com cliques. Cade clique fornece 50 pontos para a planta. A partir do quinto clique a plantinha florece e você ganha 500 pontos! 
+Fique atento a barra de vida de cada plantinha: verde está saudavel; amarelo florece; marrom a planta está morrendo e perde 100 pontos por segundo! 
+Atenção regar demais fará a planta morrer! 
+`);
+    }
+    window.onload = () => {
+      const btn = document.querySelector(".iniciar");
+      const btnInstrucao = document.querySelector(".instrucoes");
+
       // if(confirm('Começar a jogar ?')){
-      btn.addEventListener('click',iniciar)  
-        
+      btn.addEventListener("click", iniciar);
+      btnInstrucao.addEventListener("click", instrucoes);
+
       // }
     };
     // document.body.addEventListener("click", (e) => {
