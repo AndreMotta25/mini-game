@@ -81,6 +81,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Press Start 2P", cursive;
 }
 .iniciar {
   background-color: tomato;
@@ -90,8 +91,13 @@ img {
   border: none;
   height: 30px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
   margin: 0 auto;
   text-align: center;
   cursor: pointer;
+  font-family: "Press Start 2P", cursive;
+}
+.titulo {
+  font-family: "Press Start 2P", cursive;
+  font-size: 25px;
 }
