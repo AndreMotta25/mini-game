@@ -185,6 +185,7 @@ class Planta {
     } else if (this.click >= 5 && this.#lifeProgress > 32) {
       this.planta.children[1].src = "./Assets/Figures/plant-flower.png";
       this.amarela = true;
+      this.click = 0;
     }
   }
   /*inicia os metodos montarPlanta e diminuirBarra para o construtor(assim ninguem precisa de mexer nisso)*/
